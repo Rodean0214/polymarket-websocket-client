@@ -1,5 +1,7 @@
 # polymarket-websocket-client
 
+[![npm version](https://badge.fury.io/js/polymarket-websocket-client.svg)](https://badge.fury.io/js/polymarket-websocket-client)
+
 Zero-dependency TypeScript WebSocket client for Polymarket CLOB and RTDS APIs. Supports all WebSocket channels with automatic reconnection, heartbeat, and comprehensive error handling.
 
 ## Features
