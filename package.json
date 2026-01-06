@@ -1,6 +1,6 @@
 {
   "name": "polymarket-websocket-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Zero-dependency TypeScript WebSocket client for Polymarket CLOB and RTDS APIs with automatic reconnection and full type safety",
   "license": "MIT",
 
