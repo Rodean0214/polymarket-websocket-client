@@ -70,7 +70,7 @@ export class RtdsClient extends BaseWebSocketClient {
         }
       }
     }
-    const filters = symbols ? symbols.join(',') : undefined;
+    const filters = symbols ? JSON.stringify(symbols.map(s => ({ symbol: s.toLowerCase() }))) : undefined;
     this.addSubscription({
       topic: 'crypto_prices',
       type: 'update',
